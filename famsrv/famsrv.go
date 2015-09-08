@@ -138,6 +138,14 @@ func main() {
 		w.Header().Set("Content-Type", "image/jpeg")
 		io.Copy(w, f)
 	})
+	m.Get("/robots.txt", func() string {
+		return "" +
+			"# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file\n" +
+			"#\n" +
+			"# To ban all spiders from the entire site uncomment the next two lines:\n" +
+			"User-Agent: *\n" +
+			"Disallow: /"
+	})
 
 	m.RunOnAddr("localhost:8080")
 }
