@@ -1,0 +1,115 @@
+/* custom fonts */
+@font-face {
+	font-family: 'polaroid';
+	font-style: normal;
+	font-weight: normal;
+	src: url("/assets/SetFireToTheRain.ttf");
+}
+
+* { margin: 0; padding: 0; border: 0; }
+
+body {
+	background: #959796 url("/assets/wood-repeat.jpg");
+	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+#container {
+	width: 600px;
+	margin: 40px auto;
+}
+
+#container #title {
+	margin: 50px 0;
+	color: #fff;
+	font-size: 60px;
+	font-weight: bold;
+	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	text-shadow: 1px 3px 5px rgba(0,0,0, 0.5);
+	letter-spacing: -1px;
+}
+
+#container #title a {
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+}
+
+.clear {
+	clear: both;
+}
+
+#gallery img {
+	max-width: 500px;
+}
+
+#gallery .photo {
+	position: relative;
+	float: left;
+	padding: 10px 10px 10px 10px;
+	margin: 20px 0;
+	background: #eee;
+	border: 1px solid #fff;
+	box-shadow: 0px 2px 15px #333;
+	-moz-box-shadow: 0px 2px 15px #333;
+	-webkit-box-shadow: 0px 2px 15px #333;
+	color: #333;
+}
+
+#gallery .photo:hover {
+	box-shadow: 3px 5px 15px #333;
+	-moz-box-shadow: 3px 5px 15px #333;
+	-webkiwebkit-box-shadow: 3px 5px 15px #333;
+}
+
+#gallery .pic-0 {
+	-webkit-transform: rotate(-2deg);
+	-moz-transform: rotate(-2deg);
+}
+#gallery .pic-1 {
+	-webkit-transform: rotate(1deg);
+	-moz-transform: rotate(1deg);
+}
+#gallery .pic-2 {
+	-webkit-transform: rotate(-1deg);
+	-moz-transform: rotate(-1deg);
+}
+#gallery .pic-3 {
+	-webkit-transform: rotate(3deg);
+	-moz-transform: rotate(3deg);
+}
+#gallery .pic-4 {
+	-webkit-transform: rotate(-12deg);
+	-moz-transform: rotate(-12deg);
+}
+#gallery .pic-5 {
+	-webkit-transform: rotate(5deg);
+	-moz-transform: rotate(5deg);
+}
+
+#gallery .photo a {
+}
+
+#gallery .photo .description {
+	padding: 0 5px;
+	font-family: 'polaroid', cursive;
+	font-size: 1.3em;
+	text-align: center;
+}
+
+#gallery .photo .meta {
+	background: #eaeaea;
+
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+
+	font-family: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+	font-size: 11px;
+	color: #666;
+	padding: 5px 10px;
+	margin-top: 10px;
+}
+
+#gallery .photo .meta .date {
+	float: right;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Familie</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="/assets/main.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="gallery">
+    {{range $index, $item := .MediaItems}}
+      <div class="photo pic-{{mod $index 5}}">
+        <a href="/media/original/{{$item.Name}}">
+          <img src="/media/thumb/{{$item.Name}}" />
+        </a>
+        <div class="description">{{$item.Comment}}</div>
+        <div class="meta">
+          <p class="date">{{ftime $item.CreatedAt "January 2, 2006"}}</p>
+          <p class="clear"></p>
+        </div>
+      </div>
+    {{end}}
+    </div>
+  </div>
+</body>
+</html>
