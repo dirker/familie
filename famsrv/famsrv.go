@@ -18,7 +18,8 @@ import (
 )
 
 type configuration struct {
-	MediaRoot string
+	ListenAddr string
+	MediaRoot  string
 }
 
 func loadConfiguration() (config configuration, err error) {
@@ -151,5 +152,5 @@ func main() {
 			"Disallow: /"
 	})
 
-	m.RunOnAddr("localhost:8080")
+	m.RunOnAddr(config.ListenAddr)
 }

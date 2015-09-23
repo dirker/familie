@@ -1,3 +1,4 @@
 {
-	"MediaRoot": "${HOME}/Sites/Familie/media"
+	"ListenAddr": "localhost:8080",
+	"MediaRoot": "${HOME}/Sites/Familie"
 }
