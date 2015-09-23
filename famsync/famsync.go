@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"io/ioutil"
 	"os"
@@ -37,7 +38,9 @@ func main() {
 
 	mediaItems := getIPhotoFiles("Website")
 
-	for _, item := range mediaItems {
+	for i, item := range mediaItems {
+		fmt.Printf("\rCopying %d/%d", i+1, len(mediaItems))
+
 		fname := path.Base(item.path)
 
 		dst := path.Join(destPath, fname)
@@ -47,4 +50,5 @@ func main() {
 			_ = ioutil.WriteFile(dst+"-comment.txt", []byte(item.comment), 0644)
 		}
 	}
+	fmt.Println()
 }
