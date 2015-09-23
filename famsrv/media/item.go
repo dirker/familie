@@ -106,7 +106,7 @@ func NewItem(relpath string) (item Item, err error) {
 	/* check for comment */
 	comment, err := ioutil.ReadFile(path + "-comment.txt")
 	if err != nil {
-		return
+		return item, nil
 	}
 
 	item.Comment = string(comment)
