@@ -15,11 +15,10 @@ body {
 
 #container {
 	width: 600px;
-	margin: 40px auto;
+	margin: 20px auto;
 }
 
 #container #title {
-	margin: 50px 0;
 	color: #fff;
 	font-size: 60px;
 	font-weight: bold;
@@ -36,6 +35,11 @@ body {
 
 .clear {
 	clear: both;
+}
+
+#gallery {
+	width: 540px;
+	margin: 0 auto;
 }
 
 #gallery img {

@@ -9,8 +9,9 @@
 </head>
 <body>
   <div id="container">
+    <div id="title"><center>{{.Year}}</center></div>
     <div id="gallery">
-    {{range $index, $item := .MediaItems}}
+      {{range $index, $item := .MediaItems}}
       <div class="photo pic-{{mod $index 5}}">
         <a href="/media/original/{{$item.Name}}">
           <img src="/media/thumb/{{$item.Name}}" />
@@ -21,7 +22,7 @@
           <p class="clear"></p>
         </div>
       </div>
-    {{end}}
+      {{end}}
     </div>
   </div>
 </body>

@@ -52,6 +52,7 @@ func templateFuncMod(a, b int) int {
 }
 
 type siteData struct {
+	Year       int
 	MediaItems []media.Item
 }
 
@@ -80,14 +81,17 @@ func main() {
 		mediaItems, err := media.GetItems()
 		check(err)
 
-		/* only serve images until 12 month back */
-		date := mediaItems[0].CreatedAt.AddDate(-1, 0, 0)
+		firstItem := mediaItems[0]
+		year := time.Date(firstItem.CreatedAt.Year(), 0, 0, 0, 0, 0, 0, time.UTC)
+
+		/* only serve images from first items year */
 		n := sort.Search(len(mediaItems), func(i int) bool {
-			return mediaItems[i].CreatedAt.Before(date)
+			return mediaItems[i].CreatedAt.Before(year)
 		})
 
 		sd := siteData{}
 		sd.MediaItems = mediaItems[:n]
+		sd.Year = firstItem.CreatedAt.Year()
 
 		tmplMain.Execute(w, sd)
 	})
