@@ -37,8 +37,6 @@ void album_write_items_to_fd(const char *albumName, int fd)
     const char *data = [csvLine UTF8String];
     write(fd, data, strlen(data));
   }
-
-  close(fd);
 }
 
 */
@@ -57,10 +55,10 @@ type mediaItem struct {
 func getIPhotoFiles(albumName string) []mediaItem {
 	r, w, _ := os.Pipe()
 	defer r.Close()
-	defer w.Close()
 
 	wfd := w.Fd()
 	C.album_write_items_to_fd(C.CString(albumName), C.int(wfd))
+	w.Close()
 
 	csvReader := csv.NewReader(r)
 	records, _ := csvReader.ReadAll()
