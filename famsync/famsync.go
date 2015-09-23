@@ -7,8 +7,6 @@ import (
 	"path"
 )
 
-const websitePath = "${HOME}/Sites/Familie"
-
 func exists(path string) bool {
 	_, err := os.Stat(path)
 	return !os.IsNotExist(err)
@@ -32,15 +30,9 @@ func copyFile(srcFname string, dstFname string) (written int64, err error) {
 }
 
 func main() {
-	destPath := os.ExpandEnv(websitePath)
-	if !exists(destPath) {
-		panic("destination directory not found")
-	}
-
-	destPath = path.Join(destPath, "media")
-	err := os.MkdirAll(destPath, 0770)
+	destPath, err := os.Getwd()
 	if err != nil {
-		panic("could not create destination directory")
+		panic(err)
 	}
 
 	mediaItems := getIPhotoFiles("Website")
